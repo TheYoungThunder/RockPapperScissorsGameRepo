@@ -151,7 +151,6 @@ html {
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 main {
-  position: relative;
   min-height: 100vh;
 }
 
@@ -195,10 +194,24 @@ footer {
 }
 .game-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  /* max-width: 70%; */
+}
+.rock {
+  margin-top: 30px;
+  margin: auto;
+}
+.paper {
+  margin-right: 30px;
+}
+.scissors {
+  margin-left: 30px;
 }
 
 .move-container {
-  position: relative;
   width: 150px;
   height: 150px;
   padding: 50px;
@@ -212,11 +225,7 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.hand-signs {
-  position: absolute;
-  /* left: 50%;
-  top: 50%; */
-}
+
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
   body {
