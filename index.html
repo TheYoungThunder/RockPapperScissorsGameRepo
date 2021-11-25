@@ -30,6 +30,8 @@
 
 <body>
   <main>
+
+
     <div class="score-bar">
       <div class="game-name">
         <h1 class="score-bar-text">Rock</h1>
@@ -41,6 +43,9 @@
         <p class="score-box-number">12</p>
       </div>
     </div>
+
+
+    <!--#################################### RULES TAB ####################################  -->
     <div class="rules-tab">
       <div class="game-container">
         <div class="move-container-gradient paper">
@@ -60,22 +65,33 @@
         </div>
       </div>
     </div>
+
+
+    <!--#################################### Game Contianer ####################################  -->
     <div class="game-container">
-      <div class="move-container-gradient paper">
-        <div class="move-container">
-          <img class="hand-signs" src="./images/icon-paper.svg" alt="">
+      <!-- FIRST ROW FOR THE FIRST TWO BUTTONS -->
+      <div class="first-row">
+        <div class="move-container-gradient paper">
+          <div class="move-container">
+            <img class="hand-signs" src="./images/icon-paper.svg" alt="">
+          </div>
+        </div>
+        <div class="margin-setter-first-row"></div>
+        <div class="move-container-gradient scissors">
+          <div class="move-container">
+            <img class="hand-signs" src="./images/icon-scissors.svg" alt="">
+          </div>
         </div>
       </div>
-      <div class="move-container-gradient scissors">
-        <div class="move-container">
-          <img class="hand-signs" src="./images/icon-scissors.svg" alt="">
+      <!-- A LONELY ITEM ON ITS OWN ROW -->
+      <div class="margin-setter">
+        <div class="move-container-gradient rock">
+          <div class="move-container">
+            <img class="hand-signs" src="./images/icon-rock.svg" alt="">
+          </div>
         </div>
       </div>
-      <div class="move-container-gradient rock">
-        <div class="move-container">
-          <img class="hand-signs" src="./images/icon-rock.svg" alt="">
-        </div>
-      </div>
+
     </div>
 
     <button class="rules-button">rules</button>

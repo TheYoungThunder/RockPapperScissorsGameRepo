@@ -210,29 +210,35 @@ footer {
 }
 .game-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   margin: auto;
   justify-content: center;
   margin-top: 100px;
   margin-bottom: 100px;
 }
+.first-row {
+  justify-content: center;
+  display: flex;
+  max-width: 600px;
+  margin: auto;
+}
+.margin-setter-first-row {
+  width: 10vw;
+}
 .rock {
-  /* margin-top: 100px; */
-  /* margin: auto; */
   background: linear-gradient(var(--RockGradient), var(--RockGradient2));
 }
 .paper {
-  /* margin-right: 30px; */
   background: linear-gradient(var(--PaperGradient), var(--PaperGradient2));
 }
 .scissors {
-  /* margin-left: 30px; */
   background: linear-gradient(
     var(--ScissorsGradient),
     var(--ScissorsGradient2)
   );
 }
+
 .move-container-gradient {
   width: 30vw;
   height: 30vw;
@@ -244,6 +250,14 @@ footer {
   justify-content: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+.margin-setter {
+  margin: auto;
+  max-width: 300px;
+}
+.move-container-gradient.rock {
+  margin: auto;
+  margin-top: 10%;
 }
 
 .move-container {
@@ -282,5 +296,8 @@ footer {
   body {
     background-color: yellowgreen;
     background: yellowgreen;
+  }
+  .margin-setter-first-row {
+    width: 60px;
   }
 }
