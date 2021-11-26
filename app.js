@@ -7,7 +7,17 @@ const gameContainer = document.querySelector(".main-game-container");
 const gameOn = document.querySelector(".game-on");
 const rulesTab = document.querySelector(".rules-tab");
 const scoreText = document.querySelector(".score-box-number");
+const playerText = document.querySelector(".player.result-text");
+const houseText = document.querySelector(".house.result-text");
+const resultSection = document.querySelector(".result-and-restart");
+const roundResult = document.querySelector(".round-result");
+const restartButton = document.querySelector(".restart-button");
+const firstColumnDiv = document.querySelector(".first.column");
+const secondColumnDiv = document.querySelector(".second.column");
+const playerHandContainer = document.querySelector(".player-hand-container");
+const houseHandContainer = document.querySelector(".house-hand-container");
 let score = 0;
+let houseMove = "";
 
 function decideWinner(playerChoice, houseChoice) {
   if (
@@ -15,14 +25,10 @@ function decideWinner(playerChoice, houseChoice) {
     (playerChoice === "paper" && houseChoice === "rock") ||
     (playerChoice === "scissors" && houseChoice === "paper")
   ) {
-    score++;
-    updateScoreText();
     winRound();
   } else if (playerChoice === houseChoice) {
     drawRound();
   } else {
-    score--;
-    updateScoreText();
     loseRound();
   }
 }
@@ -30,51 +36,85 @@ function decideWinner(playerChoice, houseChoice) {
 function updateScoreText() {
   scoreText.textContent = score;
 }
-function loseRound() {}
-function drawRound() {}
-function winRound() {}
+function loseRound() {
+  score--;
+  updateScoreText();
+  roundResult.textContent = "you lost";
+}
+function drawRound() {
+  roundResult.textContent = "you drew";
+}
+function winRound() {
+  score++;
+  updateScoreText();
+  roundResult.textContent = "you won";
+}
 
 function decideHouseMove() {
   let rng = Math.floor(Math.random() * 3) + 1;
   switch (rng) {
     case 1:
-      makeHandSign("rock");
+      makeHouseHandSign("rock");
       break;
     case 2:
-      makeHandSign("paper");
+      makeHouseHandSign("paper");
       break;
     default:
-      makeHandSign("scissors");
+      makeHouseHandSign("scissors");
       break;
   }
   return rng;
 }
 function makeHandSign(name) {
-  const firstRowDiv = document.querySelector(".first-row");
   var tempDiv = document.createElement("div");
   const content = `<div class="move-container-gradient ${name}"> <div class="move-container"> <img class="hand-signs" src="./images/icon-${name}.svg" alt=""> </div> </div>`;
   tempDiv.innerHTML = content;
-  firstRowDiv.append(tempDiv);
+  playerHandContainer.append(tempDiv);
+}
+function makeHouseHandSign(name) {
+  houseMove = name;
+  var tempDiv = document.createElement("div");
+  const content = `<div class="move-container-gradient ${name}"> <div class="move-container"> <img class="hand-signs" src="./images/icon-${name}.svg" alt=""> </div> </div>`;
+  tempDiv.innerHTML = content;
+  houseHandContainer.append(tempDiv);
 }
 function startGame() {
   gameContainer.style.display = "none";
-  gameOn.style.display = "flex";
+  gameOn.style.display = "block";
+  playerText.style.display = "block";
+  houseText.style.display = "block";
 }
 function returnToGameScreen() {
   gameOn.style.display = "none";
   gameContainer.style.display = "flex";
+  resultSection.style.display = "none";
+}
+function gameProcess(name) {
+  startGame();
+  makeHandSign(name);
+  let playerMove = name;
+  decideHouseMove();
+  console.log(playerMove, houseMove);
+  decideWinner(playerMove, houseMove);
+  resultSection.style.display = "flex";
 }
 
 paper.addEventListener("click", (e) => {
-  makeHandSign("paper");
+  gameProcess("paper");
 });
 rock.addEventListener("click", (e) => {
-  makeHandSign("rock");
+  gameProcess("rock");
 });
 scissors.addEventListener("click", (e) => {
-  makeHandSign("scissors");
+  gameProcess("scissors");
 });
-
+restartButton.addEventListener("click", (e) => {
+  //   remove old hand signs left so they wont stack in the background
+  playerHandContainer.innerHTML = "";
+  console.log("restartButton is running");
+  houseHandContainer.innerHTML = "";
+  returnToGameScreen();
+});
 rulesButton.addEventListener("click", (e) => {
   decideHouseMove();
 });

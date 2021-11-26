@@ -212,10 +212,50 @@ footer {
   display: none;
 }
 .game-on {
-  justify-content: center;
-  display: flex;
+  /* justify-content: center;
+  display: flex; */
   max-width: 600px;
-  margin: auto;
+  display: none;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.result-text {
+  font-size: 1em;
+  margin-top: 0.5em;
+  display: none;
+}
+.player.result-text,
+.house.result-text {
+  text-transform: uppercase;
+}
+.result-and-restart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  max-width: max-content;
+  display: none;
+}
+.round-result {
+  font-size: 3em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.restart-button {
+  background-color: whitesmoke;
+  font-size: 1em;
+  text-transform: uppercase;
+  padding: 0.75em 2em;
+  border-radius: 7px;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  color: var(--DarkText);
 }
 .game-container {
   display: flex;

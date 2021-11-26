@@ -40,7 +40,7 @@
       </div>
       <div class="score-box">
         <p class="score-box-text">score</p>
-        <p class="score-box-number">12</p>
+        <p class="score-box-number">0</p>
       </div>
     </div>
 
@@ -69,18 +69,24 @@
 
     <div class="game-on">
       <div class="first-row">
-        <div class="move-container-gradient paper">
-          <div class="move-container">
-            <img class="hand-signs" src="./images/icon-paper.svg" alt="">
-          </div>
+        <div class="first column">
+          <div class="player-hand-container"></div>
+          <p class="player result-text">you picked</p>
         </div>
+
         <div class="margin-setter-first-row"></div>
-        <!-- <div class="move-container-gradient scissors">
-          <div class="move-container">
-            <img class="hand-signs" src="./images/icon-scissors.svg" alt="">
-          </div>
-        </div> -->
+        <div class="second column">
+          <div class="house-hand-container"></div>
+          <p class="house result-text">house picked</p>
+        </div>
       </div>
+    </div>
+
+    </div>
+
+    <div class="result-and-restart">
+      <p class="round-result">you win</p>
+      <button class="restart-button">play again</button>
     </div>
 
     <!--#################################### Game Contianer ####################################  -->
