@@ -153,6 +153,9 @@ html {
 main {
   min-height: 100vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 footer {
@@ -169,7 +172,7 @@ footer {
   box-sizing: border-box;
   border: 3px solid var(--HeaderOutline);
   border-radius: 7px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 0.8;
 }
 .score-box {
@@ -208,14 +211,17 @@ footer {
   top: 0;
   display: none;
 }
+.game-on {
+  justify-content: center;
+  display: flex;
+  max-width: 600px;
+  margin: auto;
+}
 .game-container {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   margin: auto;
   justify-content: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
 }
 .first-row {
   justify-content: center;
@@ -255,9 +261,11 @@ footer {
   margin: auto;
   max-width: 300px;
 }
+.second-row {
+  margin-top: 10%;
+}
 .move-container-gradient.rock {
   margin: auto;
-  margin-top: 10%;
 }
 
 .move-container {
@@ -282,7 +290,7 @@ footer {
 .rules-button {
   color: whitesmoke;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   letter-spacing: 0.1em;
   border-radius: 7px;
   padding: 0.5em 1.5em;
@@ -290,6 +298,8 @@ footer {
   border: 1px solid whitesmoke;
   text-transform: uppercase;
   margin-bottom: 20px;
+  align-self: center;
+  max-width: max-content;
 }
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
