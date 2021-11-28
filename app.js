@@ -1,4 +1,3 @@
-console.log("app.js is running");
 const paper = document.querySelector(".paper.game-button");
 const scissors = document.querySelector(".scissors.game-button");
 const rock = document.querySelector(".rock.game-button");
@@ -16,7 +15,8 @@ const firstColumnDiv = document.querySelector(".first.column");
 const secondColumnDiv = document.querySelector(".second.column");
 const playerHandContainer = document.querySelector(".player-hand-container");
 const houseHandContainer = document.querySelector(".house-hand-container");
-let score = 0;
+const myStorage = window.localStorage;
+let glocalScore = 0;
 let houseMove = "";
 
 function decideWinner(playerChoice, houseChoice) {
@@ -33,20 +33,31 @@ function decideWinner(playerChoice, houseChoice) {
   }
 }
 
-function updateScoreText() {
-  scoreText.textContent = score;
+function scoreNumOnReload() {
+  scoreText.textContent = myStorage.getItem("score");
+}
+
+function updateScoreText(update) {
+  if (myStorage.getItem("score") === null) {
+    myStorage.setItem("score", 0);
+  }
+  let score = Number(myStorage.getItem("score")) + update;
+  myStorage.setItem("score", score);
+
+  scoreText.textContent = myStorage.getItem("score");
+  console.log(score, myStorage.getItem("score"));
 }
 function loseRound() {
-  score--;
-  updateScoreText();
+  glocalScore--;
+  updateScoreText(-1);
   roundResult.textContent = "you lost";
 }
 function drawRound() {
   roundResult.textContent = "you drew";
 }
 function winRound() {
-  score++;
-  updateScoreText();
+  glocalScore++;
+  updateScoreText(1);
   roundResult.textContent = "you won";
 }
 
@@ -94,7 +105,6 @@ function gameProcess(name) {
   makeHandSign(name);
   let playerMove = name;
   decideHouseMove();
-  console.log(playerMove, houseMove);
   decideWinner(playerMove, houseMove);
   resultSection.style.display = "flex";
 }
@@ -111,7 +121,6 @@ scissors.addEventListener("click", (e) => {
 restartButton.addEventListener("click", (e) => {
   //   remove old hand signs left so they wont stack in the background
   playerHandContainer.innerHTML = "";
-  console.log("restartButton is running");
   houseHandContainer.innerHTML = "";
   returnToGameScreen();
 });
