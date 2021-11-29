@@ -313,7 +313,7 @@ footer {
   margin-top: 10%;
 }
 .move-container-gradient.rock {
-  margin: auto;
+  /* margin: auto; */
 }
 
 .move-container {
@@ -349,14 +349,14 @@ footer {
 }
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
-  body {
-  }
   .margin-setter-first-row {
-    width: 60px;
+    width: 0px;
   }
+
   .move-container-gradient {
     max-height: 230px;
     max-width: 230px;
+    margin: 0px 30px;
   }
   .score-bar {
     align-self: center;
@@ -368,5 +368,8 @@ footer {
     position: absolute;
     right: 20px;
     bottom: 5%;
+  }
+  .result-and-restart {
+    margin-bottom: 20px;
   }
 }
