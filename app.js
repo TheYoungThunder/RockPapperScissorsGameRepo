@@ -91,7 +91,7 @@ function makeHouseHandSign(name) {
 }
 function startGame() {
   gameContainer.style.display = "none";
-  gameOn.style.display = "block";
+  gameOn.style.display = "flex";
   playerText.style.display = "block";
   houseText.style.display = "block";
 }

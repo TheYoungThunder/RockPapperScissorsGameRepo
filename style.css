@@ -156,6 +156,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 
 footer {
@@ -168,12 +169,14 @@ footer {
   padding: 0.5em;
   justify-content: space-between;
   align-items: center;
-  margin: 1.2em;
+  margin: 1.2em 0em;
+  min-width: 90%;
   box-sizing: border-box;
   border: 3px solid var(--HeaderOutline);
   border-radius: 7px;
   font-size: 1.5rem;
   line-height: 0.8;
+  font-weight: bold;
 }
 .score-box {
   display: flex;
@@ -212,9 +215,8 @@ footer {
   display: none;
 }
 .game-on {
-  /* justify-content: center;
-  display: flex; */
-  max-width: 600px;
+  justify-content: space-between;
+  display: flex;
   display: none;
 }
 .column {
@@ -257,6 +259,12 @@ footer {
   font-weight: 400;
   color: var(--DarkText);
 }
+
+/* .desktop-or-mobile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
 .game-container {
   display: flex;
   flex-direction: column;
@@ -311,8 +319,6 @@ footer {
 .move-container {
   width: 80%;
   height: 80%;
-  max-width: 120px;
-  max-height: 120px;
   /* padding: 50px; */
   border-radius: 50%;
   /* border: 1em solid red; */
@@ -344,10 +350,23 @@ footer {
 /* MEDIA QUERIES */
 @media (min-width: 576px) {
   body {
-    background-color: yellowgreen;
-    background: yellowgreen;
   }
   .margin-setter-first-row {
     width: 60px;
+  }
+  .move-container-gradient {
+    max-height: 230px;
+    max-width: 230px;
+  }
+  .score-bar {
+    align-self: center;
+    font-size: 2.5rem;
+    min-width: 60%;
+    max-width: 60%;
+  }
+  .rules-button {
+    position: absolute;
+    right: 20px;
+    bottom: 5%;
   }
 }
