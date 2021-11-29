@@ -33,12 +33,25 @@ function decideWinner(playerChoice, houseChoice) {
   }
 }
 
+// this function will set the score number on load,
+// otherwise it always shows zero even if you have a different score.
+//  and will display the correct score only after playing a round
 function scoreNumOnReload() {
+  // this sets score to zero when the app is first opened
+  if (
+    myStorage.getItem("score") === null ||
+    myStorage.getItem("score") === undefined
+  ) {
+    myStorage.setItem("score", 0);
+  }
   scoreText.textContent = myStorage.getItem("score");
 }
 
 function updateScoreText(update) {
-  if (myStorage.getItem("score") === null) {
+  if (
+    myStorage.getItem("score") === null ||
+    myStorage.getItem("score") === undefined
+  ) {
     myStorage.setItem("score", 0);
   }
   let score = Number(myStorage.getItem("score")) + update;
