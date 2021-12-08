@@ -372,4 +372,7 @@ footer {
   .result-and-restart {
     margin-bottom: 20px;
   }
+  .attribution {
+    margin-top: 10px;
+  }
 }
